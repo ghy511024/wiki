@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>后台页面--弹窗插件--使用说明</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/zyalert.css">
+
+    <style>
+        .btn-show,.btn-hide {
+            width: 100px;
+            height: 30px;
+            background-color: #0b97c4;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+            float: left;
+            margin-right: 20px;
+        }
+        .haha .item{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div class="content-title">
+        <h5>后台弹窗</h5>
+    </div>
+    <div class="main">
+        <h4>1.引入插件</h4>
+
+        <pre>
+            <code class="language">&lt;link rel="stylesheet" href="css/zyalert.css">&lt;script type="text/javascript" src="../lib/dist/zlib.min.js">&lt;/script><br></code>
+        </pre>
+        <h4>2.使用插件</h4>
+        <pre>
+            <code class="language">
+&lt;!--添加一个div，类名自定义，例如haha；并设置style="display: none"-->
+&lt;div class="zyinfo" style="display: none">
+    &lt;!--标题-->
+    &lt;div class="zy-title">修改运营信息&lt;/div>
+    &lt;!--文本框-->
+    &lt;div class="item">
+        &lt;label for="">章鱼uid&lt;/label>
+        &lt;input type="text">
+    &lt;/div>
+    &lt;!--按钮-->
+    &lt;div class="zy-btn">
+        &lt;div class="btn btn-center submit">确定&lt;/div>
+    &lt;/div>
+&lt;/div>
+&lt;script>
+    &lt;!--传入自定义的类名，比如：haha-->
+    var panel = new zlib.admin.zpanel($('.haha'))
+&lt;script/></code>
+             <div class="btn-show btn1">显示弹框</div>
+        </pre>
+        <h4>3.调用方法</h4>
+        <p>Show()----显示弹窗</p>
+        <pre><code>panel.Show();</code></pre>
+        <p>Hide()----隐藏弹窗</p>
+        <pre><code>panel.Hide();</code></pre>
+        <p>submit(传入一个提交信息的函数)----提交弹窗信息,默认在点击类名为submit的按钮后执行传入的函数;</p>
+        <pre><code>panel.submit(function () {
+        console.log("弹窗信息已提交");
+    });</code></pre>
+        <p>cancel()----默认在点击类名为cancel的按钮后执行;</p>
+        <pre><code>panel.cancel();</code></pre>
+        <h4>4.多种item类型</h4>
+        <p>不可编辑的文本框</p>
+        <pre><code>&lt;div class="item">
+        &lt;label for="">联系方式&lt;/label>
+        &lt;input type="text" class="disable">
+&lt;/div></code>
+            <div class="btn-show btn2">显示弹框</div></pre>
+        <p>多选框</p>
+        <pre><code>&lt;div class="item checkbox">
+        &lt;label for="zhan">活动页展示1 &lt;input type="checkbox" id="zhan">&lt;/label>
+        &lt;label for="zhan1">活动页展示2 &lt;input type="checkbox" id="zhan1">&lt;/label>
+        &lt;label for="zhan2">活动页展示3 &lt;input type="checkbox" id="zhan2">&lt;/label>
+&lt;/div></code>
+            <div class="btn-show btn3">显示弹框</div></pre>
+        <p>单选框</p>
+        <pre><code>&lt;div class="item radio">
+        &lt;label for="zhanshi">活动页展示 &lt;input type="radio" id="zhanshi" name="show">&lt;/label>
+        &lt;label for="zhanshi1">活动页不展示 &lt;input type="radio" id="zhanshi1" name="show">&lt;/label>
+        &lt;label for="zhanshi2">活动页部分展示 &lt;input type="radio" id="zhanshi2" name="show">&lt;/label>
+&lt;/div></code>
+            <div class="btn-show btn4">显示弹框</div></pre>
+        <p>下拉框</p>
+        <pre><code>&lt;div class="item">
+        &lt;label for="">章鱼uid&lt;/label>
+        &lt;select name="" id="" class="selected">
+            &lt;option value="">i am not first&lt;/option>
+            &lt;option value="">2&lt;/option>
+            &lt;option value="">3&lt;/option>
+        &lt;/select>
+&lt;/div></code>
+            <div class="btn-show btn5">显示弹框</div></pre>
+
+    </div>
+</div>
+<div class="zy-info" style="display: none">
+    <div class="zy-title">修改运营信息</div>
+    <div class="item item1">
+        <label for="">章鱼uid</label>
+        <input type="text">
+    </div>
+    <div class="item item2">
+        <label for="">联系方式</label>
+        <input type="text" class="disable">
+    </div>
+    <div class="item checkbox item3">
+        <label for="zhan">多选框1<input type="checkbox" id="zhan"></label>
+        <label for="zhan1">多选框2<input type="checkbox" id="zhan1"></label>
+        <label for="zhan2">多选框3<input type="checkbox" id="zhan2"></label>
+    </div>
+    <div class="item radio item4">
+        <label for="zhanshi">单选框1<input type="radio" id="zhanshi" name="show"></label>
+        <label for="zhanshi1">单选框2<input type="radio" id="zhanshi1" name="show"></label>
+        <label for="zhanshi2">单选框3<input type="radio" id="zhanshi2" name="show"></label>
+    </div>
+    <div class="item select item5">
+        <label for="">章鱼uid</label>
+        <select name="" id="">
+            <option value="">i am not first</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <div class="zy-btn">
+        <div class="btn btn-center submit">确定</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript"
+        src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+<script type="text/javascript" src="../header/js/header.js"></script>
+<script type="text/javascript" src="../lib/dist/zlib.min.js"></script>
+<script src="js/zyalert.js"></script>
+<script>
+    var panel2 = new zlib.admin.zpanel($('.zy-info'));
+    $('.btn1').on("click", function () {
+        panel2.Show();
+        $('.item').hide();
+        $('.item1').show();
+    });
+    $('.btn2').on("click", function () {
+        panel2.Show();
+        $('.item').hide();
+        $('.item1,.item2').show();
+    });
+    $('.btn3').on("click", function () {
+        panel2.Show();
+        $('.item').hide();
+        $('.item1,.item2,.item3').show();
+    });
+    $('.btn4').on("click", function () {
+        panel2.Show();
+        $('.item').hide();
+        $(".item1,.item2,.item3,.item4").show();
+    });
+    $('.btn5').on("click", function () {
+        panel2.Show();
+        $('.item').show();
+    });
+    panel2.submit(function () {
+        alert("提交成功")
+    });
+    panel2.cancel();
+</script>
+</html>

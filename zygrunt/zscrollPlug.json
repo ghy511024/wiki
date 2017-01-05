@@ -1,0 +1,9 @@
+{
+    "files": {
+        "dist/zlib-plug-scroll.js": [
+            "zdrag/js/drag.js",
+            "zscroll/js/mousewheel.js",
+            "zscroll/js/zscroll.js"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "options": {
+        "banner": "<%= banner %>",
+        "report": "min"
+    },
+    "dest": "dist/zlib/zlib.all.min.js",
+    "src": [
+        "zlib/base/window/monitor.js",
+        "zlib/base/window/Ut.js",
+        "zlib/base/window/cookie.js",
+        "zlib/base/window/store.js",
+        "zlib/base/window/log.js",
+        "zlib/base/window/EVT.js",
+        "zlib/base/window/modernizr.js",
+        "zlib/base/window/onload.js",
+        "zlib/base/base.js",
+        "zlib/base/tool/csstool.js",
+        "zlib/base/tool/zen.js",
+        "zlib/base/tool/reLayParent.js",
+        "zlib/ui/wave/js/wave.js",
+        "zlib/plug/zdrag/js/drag.js",
+        "zlib/plug/zscroll/js/mousewheel.js",
+        "zlib/plug/zscroll/js/zscroll.js",
+        "zlib/plug/zclip/js/zclip.js"
+    ]
+}

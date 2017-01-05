@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后端弹窗信息</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/zyalert.css">
+    <style type="text/css">
+        .btn {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background-color: green;
+            color: #fff;
+            line-height: 30px;
+            text-align: center;
+            z-index: 2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="btn show1" style='top:10px;'>显示弹窗1</div>
+<div class="btn show2" style='top:60px;'>显示弹窗2</div>
+<div class="btn hide1" style='top:110px;'>隐藏弹窗1</div>
+<div class="btn hide2" style='top:160px;'>隐藏弹窗2</div>
+<div class="zyinfo" style="display: none">
+    <div class="zy-title">修改运营信息111</div>
+    <div class="item">
+        <label for="">章鱼uid</label>
+        <input type="text" disabled="true">
+    </div>
+    <div class="item">
+        <label for="">章鱼uid</label>
+        <select name="" id="" class="selected">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <div class="item">
+        <label for="">所属上级</label>
+        <input type="text">
+    </div>
+    <!--按钮-->
+    <div class="zy-btn">
+        <div class="btn btn-left submit">确定</div>
+        <div class="btn btn-right cancel">取消</div>
+    </div>
+</div>
+
+
+<div class="zyinfo2" style="display: none">
+    <div class="zy-title">修改运营信息</div>
+    <div class="item">
+        <label for="">章鱼uid</label>
+        <input type="text" value="567889" class="disable">
+    </div>
+    <div class="item">
+        <label for="">联系方式</label>
+        <input type="text">
+    </div>
+    <div class="item radio radio1">
+        <label for="zhanshi">活动页展示 <input type="radio" id="zhanshi" name="show" class="selected"></label>
+        <label for="zhanshi1">活动页不展示 <input type="radio" id="zhanshi1" name="show"></label>
+        <label for="zhanshi2">活动页部分展示 <input type="radio" id="zhanshi2" name="show"></label>
+    </div>
+    <div class="item checkbox checkbox1">
+        <label for="zhan">活动页展示1 <input type="checkbox" id="zhan"></label>
+        <label for="zhan1">活动页展示2 <input type="checkbox" id="zhan1"></label>
+        <label for="zhan2">活动页展示3 <input type="checkbox" id="zhan2"></label>
+    </div>
+    <div class="item select">
+        <label for="">章鱼uid</label>
+        <select name="" id="">
+            <option value="">i am not first</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <div class="item">
+        <label for="">所属上级</label>
+        <input type="text">
+    </div>
+    <div class="zy-btn">
+        <div class="btn btn-left submit">确定</div>
+        <div class="btn btn-right cancel">取消</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+<script type="text/javascript" src="../lib/js/zlib.js"></script>
+<script src="js/zyalert.js"></script>
+<script>
+
+    var panel = new zlib.admin.zpanel($('.zyinfo'));
+
+    var panel2 = new zlib.admin.zpanel($('.zyinfo2'));
+
+    //    控制弹窗的显示方法是  show()
+    //    控制弹窗的隐藏方法是  hide()
+    $('.show1').on("click", function () {
+        panel.Show();
+    });
+    $('.hide1').on("click", function () {
+        panel.Hide();
+    });
+    $('.show2').on("click", function () {
+        panel2.Show();
+    });
+    $('.hide2').on("click", function () {
+        panel2.Hide();
+    });
+
+    //    提交弹窗信息  调用submit方法  需要给方法传入要执行的函数
+
+    panel.submit(function () {
+        console.log("弹窗信息已提交");
+    });
+
+    //    取消弹窗信息  调用cancel方法  然后弹窗关闭  清空填写信息
+    panel.cancel();
+
+</script>
+</body>
+</html>

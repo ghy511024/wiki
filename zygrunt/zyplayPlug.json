@@ -1,0 +1,10 @@
+{
+    "files": {
+        "dist/zlib-plug-play.js": [
+            "zdrag/js/drag.js",
+            "zscroll/js/mousewheel.js",
+            "zscroll/js/zscroll.js",
+            "zclip/js/zclip.js"
+        ]
+    }
+}

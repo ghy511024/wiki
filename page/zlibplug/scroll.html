@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>zlib scroll--章鱼wiki </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="#"/>
+        <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+        <script type="text/javascript" src="../header/js/header.js"></script>
+        <script type="text/javascript" src="/dist/zlib/zlib.all.min.js"></script>
+        <style>
+            button{
+                width:130px;
+                line-height: 26px;
+                background-color:#5BC0DE;
+                text-align: center;
+                border:none;
+                color:#fff;
+                margin-top:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div class="content-title">
+                <h5>章鱼滚动条插件</h5>
+            </div>
+            <div class="main">
+                <h4>1.引入插件</h4>
+                <pre><code class="language">
+      &lt;script type="text/javascript" src="dist/zlib.js">&lt;/script>
+      &lt;script type="text/javascript" src="dist/zlib-plug-scroll.js">&lt;/script>
+</code></pre>
+                <h4>2.使用插件</h4>
+                <pre><code class="language">
+ &lt;div class="aa" style="width:300px;height:200px;overflow: hidden;">
+     &lt;div class="sc_content"  style="width:300px;height:600px;background: -webkit-linear-gradient(top,#CE20B5,#56DBE2);">  &lt;/div>
+ &lt;/div>
+&lt;script type="text/javascript">
+    $(function () {
+        var sc = new zlib.plug.zscroll($(".aa"))// 需要new （页面可能同时存在多个插件）
+    }
+&lt;/script>
+</code></pre>
+                <h4>3.效果</h4>
+                <div class="aa" style="width:300px;height:200px;overflow: hidden;">
+                    <div class="sc_content"  style="width:300px;height:600px;background: -webkit-linear-gradient(top,#CE20B5,#56DBE2);"> </div>
+                </div>
+                <h4>4.参数支持</h4>
+                <pre><code class="language">
+&lt;script type="text/javascript">
+    $(function () {
+        var sc = new zlib.plug.zscroll($(".aa"), {
+            scWidth: "20px",        //整体滚动条的宽度，可不配置，默认10px
+            barWidth: "10px",       //滚动条宽度，可不配置，默认4px
+            barBgColor:"blue",      //滚动条颜色，可不配置，默认#a6b0c3
+            barHoverColor: "#ff3346",       //hover时滚动条颜色，可不配置，默认##caccd0
+            panelBgColor:"rgba(0, 0, 0, 0.5)"       //可滚动区域背景色，可不配置，默认透明
+        })
+        //如仅需要展示滚动条，但对于颜色宽度都没有过多要求，可直接引入如下代码
+        var sc = new zlib.plug.zscroll($(".aa"));
+    })
+&lt;/script>
+</code></pre>
+                <div class="bb" style="width:300px;height:200px;overflow: hidden;">
+                    <div class="sc_content"  style="width:300px;height:600px;background: -webkit-linear-gradient(top,#CE20B5,#56DBE2);"> </div>
+                </div>
+
+                <h4>5.公有方法 update</h4>
+                <pre><code class="language">
+&lt;script type="text/javascript">
+    $(function () {
+        var sc = new zlib.plug.zscroll($(".aa")); 
+        var app = $("&lt;div style='background: yellow;height:200px'>&lt;/div>") 
+        $("button").click(function() {
+            $(".sc_content").append(app);
+            sc.update();
+        })
+        //当有需求向内容区append内容时，需要添加事件时，触发update函数
+        //demo为 添加update和没有添加update的两种情况
+    })
+&lt;/script>
+</code></pre>
+                <div class="cc" style="width:300px;height:200px;overflow: hidden;">
+                    <div class="sc_content">
+                        <div style="height:1000px;background: -webkit-linear-gradient(top,#CE20B5,#56DBE2);"></div>
+                    </div>
+                </div>
+                <button id="noupdate">没有update公用方法</button>
+                <button id="update">有update公用方法</button>
+                <h4>6.公有方法 scrollTo</h4>
+                <pre><code class="language">
+&lt;script type="text/javascript">
+    $(function () {
+        var sc = new zlib.plug.zscroll($(".aa")); 
+        $("button").click(function() {
+            sc3.scrollTo("bottom")
+        })
+        //点击后设置滚动条的位置，支持关键字top，bottom，和任意数值
+        //当关键字设置为"top"时，滚动条初始位置是在顶部；设置为"bottom"时，位置在底部；设置为数值50时，距离顶部50px
+    })
+&lt;/script>
+</code></pre>
+                <div class="hh" style="width:300px;height:200px;overflow: hidden;">
+                    <div class="sc_content"  style="width:300px;height:600px;background: -webkit-linear-gradient(top,#CE20B5,#56DBE2);"> </div>
+                </div>
+                <button id="top">scrollTo("top")</button>
+                <button id="scroll">scrollTo(150)</button>
+                <button id="bottom">scrollTo("bottom")</button>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                var sc1 = new zlib.plug.zscroll($(".aa"))
+                var sc = new zlib.plug.zscroll($(".bb"), {
+                    scWidth: "20px",
+                    barWidth: "20px",
+                    barBgColor: "blue",
+                    barHoverColor: "#ff3346",
+                    panelBgColor: "rgba(0, 0, 0, 0.5)"
+                })
+                var sc2 = new zlib.plug.zscroll($(".cc"));
+                $("#noupdate").on("click", function () {
+                    for (var i = 0; i < 10; i++) {
+                        var random1 = parseInt(Math.random() * 300);
+                        var random2 = parseInt(Math.random() * 100);
+                        var random3 = parseInt(Math.random() * 80);
+                        var bgColor = "rgb(" + random1 + ", " + random2 + "," + random3 + ")";
+                        var app = $("<div style='height:200px;background:" + bgColor + "'></div>");
+                        $(".cc .sc_content").append(app)
+                    }
+                })
+                $("#update").on("click", function () {
+                    for (var i = 0; i < 10; i++) {
+                        var random1 = parseInt(Math.random() * 300);
+                        var random2 = parseInt(Math.random() * 100);
+                        var random3 = parseInt(Math.random() * 80);
+                        var bgColor = "rgb(" + random1 + ", " + random2 + "," + random3 + ")";
+                        var app = $("<div style='height:200px;background:" + bgColor + "'></div>");
+                        $(".cc .sc_content").append(app);
+                        sc2.update();
+                    }
+                })
+                var sc3 = new zlib.plug.zscroll($(".hh"));
+                $("#bottom").on("click", function () {
+                    sc3.scrollTo("bottom")
+                })
+                $("#top").on("click", function () {
+                    sc3.scrollTo("top")
+                })
+                $("#scroll").on("click", function () {
+                    sc3.scrollTo(150)
+                })
+            })
+        </script>
+    </body>
+</html>

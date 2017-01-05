@@ -1,0 +1,16 @@
+{
+    "/dist/zlib/zlib.all.js": [
+        "zlib/base/window/monitor.js",
+        "zlib/base/window/Ut.js",
+        "zlib/base/window/cookie.js",
+        "zlib/base/window/store.js",
+        "zlib/base/window/log.js",
+        "zlib/base/window/EVT.js",
+        "zlib/base/window/modernizr.js",
+        "zlib/base/window/onload.js",
+        "zlib/base/base.js",
+        "zlib/base/tool/csstool.js",
+        "zlib/base/tool/zen.js",
+        "zlib/base/tool/reLayParent.js"
+    ]
+}

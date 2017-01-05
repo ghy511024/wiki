@@ -1,0 +1,33 @@
+html, body {
+  margin: 0px;
+  font-family: "Microsoft Yahei"; }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, figure, menu, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, select, th, td {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; }
+
+a {
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none; }
+
+ul, ol {
+  list-style: none; }
+
+button:focus, input:focus, select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus {
+  outline: none; }
+
+img {
+  border: none;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td, th {
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
