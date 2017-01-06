@@ -29,17 +29,29 @@ body {
     height: 100%;
     color: #fff;
     overflow: hidden;
+    position: relative;
     margin: 0px auto;
     line-height: 42px; }
+    .header .header-inner .logo {
+      width: 150px;
+      height: 42px;
+      position: absolute;
+      left: -28px; }
+      .header .header-inner .logo #geeklogo {
+        position: absolute;
+        width: 150px;
+        height: 42px; }
     .header .header-inner a {
       color: #fff;
       text-decoration: none; }
-    .header .header-inner ul li {
-      height: 100%;
-      float: left;
-      margin-right: 25px; }
-      .header .header-inner ul li.active {
-        background: rgba(132, 132, 132, 0.34); }
+    .header .header-inner ul {
+      margin-left: 130px; }
+      .header .header-inner ul li {
+        height: 100%;
+        float: left;
+        margin-right: 25px; }
+        .header .header-inner ul li.active {
+          background: rgba(132, 132, 132, 0.34); }
 
 .banner {
   width: 100%;

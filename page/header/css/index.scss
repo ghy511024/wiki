@@ -23,6 +23,18 @@ body{
         height:100%;
         color:#fff;
         overflow: hidden;
+        position:relative;
+        .logo{
+            width:150px;
+            height:42px;
+            position:absolute;
+            left:-28px;
+            #geeklogo{
+                position:absolute;
+                width:150px;
+                height:42px;
+            }
+        }
         a{
             color:#fff;
             text-decoration: none;
@@ -30,6 +42,7 @@ body{
         margin:0px auto;
         line-height: 42px;
         ul{
+            margin-left:130px;
             li{
                 height:100%;
                 float:left;
