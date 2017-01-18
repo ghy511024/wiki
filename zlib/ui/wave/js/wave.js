@@ -139,7 +139,7 @@
                     "margin-top": "-10px;",
                     "margin-left": "-10px;",
                     "opacity": "0;",
-                    "background": "rgba(0,0,0,0.12);",
+                    "background": "rgba(0,0,0,0.11);",
                     "transition": "all 0.7s ease-out;",
                     "transition-property": "opacity, -webkit-transform;",
                     "transition-property": "transform, opacity, -webkit-transform;",

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>coolAdmin 后端wiki--基本结构</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="../css/highlight/agate.css" rel="stylesheet"/>
+        <script type="text/javascript" src="http://cdn.bootcss.com/highlight.js/8.5/highlight.min.js"></script>
+        <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+        <script type="text/javascript" src="../js/admin/adminload.js"></script>
+        <style type="text/css">
+            img{width:100%;}
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div class="ztitle">
+                <h5>coolAdmin 后端结构详细介绍</h5>
+            </div>
+            <h3>1：设置标题</h3>
+            <!--jjj-->
+            <div class="row mt20">
+                <div class="col-md-6">
+                    <pre><code class="language">
+                &lt;body>
+                    &lt;div id="content">
+                     &lt;!------title start------>
+                         &lt;div class="content-title">
+                            &lt;h5>coolAdmin v3.0 demo 教程&lt;/h5>
+                         &lt;/div>
+                     &lt;!------title end------>
+                    &lt;/div>
+                &lt;/body>
+            </code></pre>
+                </div>
+                <div class="col-md-6"><img src="/images/structure/pic-title.png" alt="" /></div>
+            </div>
+            <h3 class="mt50">2：查询条件专用区域</h3>
+            <div class="row mt20">
+                <div class="col-md-6">
+                    <pre><code class="language">
+     &lt;div id="content">
+         &lt;div class="content-title">
+             &lt;h5>coolAdmin v3.0 demo 教程 &lt;/h5>
+         &lt;/div>
+         &lt;div class="cond">
+             &lt;div class="form">
+                 &lt;label>开始时间： &lt;/label> &lt;input type="text" id="start-time" class="timepicker"/>
+                 &lt;label>结束时间： &lt;/label> &lt;input type="text" id="end-time" class="timepicker"/>
+                 &lt;div class="btn btn-info">靠左查询按钮 &lt;/div>
+             &lt;/div>
+             &lt;div class="form mt10">
+                 &lt;label>选择条件： &lt;/label>
+                 &lt;select>
+                     &lt;option value="value1">value1 &lt;/option>
+                     &lt;option value="value2">value2 &lt;/option>
+                 &lt;/select>
+                 &lt;label>查询条件1： &lt;/label> &lt;input type="text"/>
+                 &lt;label>查询条件2： &lt;/label> &lt;input type="text"/>
+                 &lt;div class="btn btn-success fright">靠右查询按钮 &lt;/div>
+             &lt;/div>
+         &lt;/div>
+     &lt;/div>
+            </code></pre>
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/structure/pic-cond.png" alt="" />
+                    <div class="mt20">
+                        <p>部分class 类名解释</p>
+                        <p>
+                            cond,form （类库定义类名，请勿更改）
+                        </p>
+                        <p>
+                            mt10,mt20,mt50 (上边距，距离上面10像素，20像素，50像素)
+                        </p>
+                        <p>
+                            btn,btn-info,btn-success （bttostrap 3按钮样式）
+                        </p>
+                        <p>
+                            fright （右对齐）
+                        </p>
+                        <p>
+                            timepicker (input 加上此类名，将会当作日期选择插件处理)
+                        </p>
+                        <p>ps:这儿只规范查询表单的样式，具体查询逻辑js 部分还是得自己写的，类库不做任何干预</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="mt50">3：数据表格</h3>
+            <div class="row mt20">
+                <div class="col-md-6">
+                    <pre><code class="language">
+                 &lt;table class="table table-bordered" id="table10">
+                     &lt;thead>
+                     &lt;th>标题1 &lt;/th> 
+                     &lt;th>标题2 &lt;/th>
+                     &lt;th>标题3 &lt;/th>
+                     &lt;th>标题4 &lt;/th>
+                     &lt;/thead>
+                     &lt;tbody>
+                         &lt;tr>
+                             &lt;td>aaa0 &lt;/td>
+                             &lt;td>bbb &lt;/td>
+                             &lt;td>ccc &lt;/td>
+                             &lt;td>ddd &lt;/td>
+                         &lt;/tr>
+                     &lt;/tbody>
+                 &lt;/table>
+            </code></pre>     
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/structure/pic-table.png" alt="" />
+                    <div class="mt20">
+                        <p>部分class，id 解释</p>
+                        <p>
+                            class="table table-bordered" （bootstrap 3表格样式）
+                        </p>
+                        <p>
+                            id="table" (类库定义id，有此id表格将会初始化datatable 数据表格插件)
+                        </p>
+                        <p>
+                            id="table"|| id="example" (默认每页100条)
+                        </p>
+                        <p>
+                            id="table10" (默认每页10条)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../js/main.js"></script>
+    </body>
+</html>

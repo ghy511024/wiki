@@ -11,8 +11,9 @@ module.exports = function (grunt) {
                 .replace(/@DATE/, grunt.template.today("yyyy-mm-dd")) + "\n",
         uglify: {
             options: {report: "min"},
-//            zylib: zylib,
-            zylibAll: zylibAll,
+            zylib: zylib,
+//            zylibAll: zylibAll,
+//            zyplayPlug: zyplayPlug,
 //            zyScroll: zyScroll
         }
     });

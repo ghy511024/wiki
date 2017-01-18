@@ -1,0 +1,34 @@
+[
+    {
+        "name": "coolAdmin",
+        "url": "/page/cooladmin/course/start.html",
+        "tag": [
+            {
+                "name": "光速上手",
+                "url": "/page/cooladmin/course/start.html",
+                "links": [
+                    {
+                        "name": "cdn 资源集合",
+                        "url": "/page/cooladmin/course/cdnlib.html"
+                    }
+                ]
+            }
+        ]
+    }
+    , {
+        "name": "develop js",
+        "url": "/jspage/html5video.html",
+        "tag": [
+            {
+                "name": "常用插件",
+                "url": "/jspage/html5video.html",
+                "links": [
+                    {
+                        "name": "html5 video",
+                        "url": "/jspage/html5video.html"
+                    }
+                ]
+            }
+        ]
+    }
+]

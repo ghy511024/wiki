@@ -1,19 +1,19 @@
 {
     "files": {
         "dist/zlib.js": [
-            "zlib/window/monitor.js",
-            "zlib/window/Ut.js",
-            "zlib/window/cookie.js",
-            "zlib/window/store.js",
-            "zlib/window/log.js",
-            "zlib/window/EVT.js",
-            "zlib/window/modernizr.js",
-            "zlib/window/onload.js",
+            "zlib/base/window/monitor.js",
+            "zlib/base/window/Ut.js",
+            "zlib/base/window/cookie.js",
+            "zlib/base/window/store.js",
+            "zlib/base/window/log.js",
+            "zlib/base/window/EVT.js",
+            "zlib/base/window/modernizr.js",
+            "zlib/base/window/onload.js",
             "zlib/base/base.js",
-            "zlib/tool/csstool.js",
-            "zlib/tool/zen.js",
-            "zlib/tool/reLayParent.js",
-            "wave/js/wave.js"
+            "zlib/base/tool/csstool.js",
+            "zlib/base/tool/zen.js",
+            "zlib/base/tool/reLayParent.js",
+            "zlib/ui/wave/js/wave.js"
         ]
     }
 }

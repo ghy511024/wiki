@@ -59,6 +59,7 @@ var Wiki = (function () {
             hljs.initHighlightingOnLoad()
         }, initEvent: function () {
         }, load: function (link) {
+            
         }
     };
     var ret = {

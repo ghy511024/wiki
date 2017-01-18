@@ -1,6 +1,9 @@
 (function (tool) {
     "use strict";
     var reLayParent = function (mainDom) {
+        if ($(mainDom).length == 0) {
+            return;
+        }
         var position = $(mainDom).css("position");
         var styleMain = ["marginTop", "marginBottom", "marginLeft", "marginRight", "top", "bottom", "left", "right"];
         var pdstyle = ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"];
@@ -11,7 +14,7 @@
                 $(mainDom).css(styleMain[i], 0);
             }
         }
-        if ("textarea" !== $(mainDom)[0].tagName.toLowerCase() && "input" !== $(mainDom)[0].tagName.toLowerCase()) {
+        if ($(mainDom)[0] != null && "textarea" !== $(mainDom)[0].tagName.toLowerCase() && "input" !== $(mainDom)[0].tagName.toLowerCase()) {
             for (var i in pdstyle) {
                 var main = $(mainDom).css(pdstyle[i]);
                 if (parseInt(main) != 0) {
@@ -26,7 +29,7 @@
         if (position != "static") {
             $(mainDom).parent().css("position", position);
         }
-        if (position == "absolute") {
+        if (position == "absolute" && $(mainDom)[0] != null) {
             if ("textarea" === $(mainDom)[0].tagName.toLowerCase() || "input" === $(mainDom)[0].tagName.toLowerCase()) {
                 var ph = parseInt($(mainDom).css("padding-top")) + parseInt($(mainDom).css("padding-bottom"))
                 $(mainDom).parent().css({

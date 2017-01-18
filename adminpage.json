@@ -1,0 +1,148 @@
+[
+    {
+        "name": "coolAdmin",
+        "url": "/page/cooladmin/course/start.html",
+        "tag": [
+            {
+                "name": "光速上手",
+                "title": "上手指南",
+                "url": "/page/cooladmin/course/start.html",
+                "links": [
+                    {
+                        "name": "cdn 资源集合",
+                        "url": "/page/cooladmin/course/cdnlib.html"
+                    },
+                    {
+                        "name": "快速开始",
+                        "url": "/page/cooladmin/course/start.html"
+                    }
+                    , {
+                        "name": "demo",
+                        "url": "/page/demo.html"
+                    }
+                    , {
+                        "name": "结构介绍",
+                        "url": "/page/structure.html"
+                    }
+                    , {
+                        "name": "工具函数",
+                        "url": "/page/utils.html"
+                    }
+                    , {
+                        "name": "zform 教程",
+                        "url": "/jspage/zform.html"
+                    }
+                ]
+            }
+        ]
+    }
+    , {
+        "name": "develop js",
+        "url": "/jspage/html5video.html",
+        "tag": [
+            {
+                "name": "常用插件",
+                "title": "常用插件",
+                "url": "/jspage/html5video.html",
+                "links": [
+                    {
+                        "name": "html5 video",
+                        "url": "/jspage/html5video.html"
+                    },
+                    {
+                        "name": "zclip 一键复制",
+                        "url": "/jspage/zcopy.html"
+                    },
+                    {
+                        "name": "ajax 上传图片",
+                        "url": "/jspage/ajaximg.html"
+                    }
+                ]
+            }, {
+                "name": "插件开发",
+                "title": "底层支持",
+                "url": "/jspage/csstool.html",
+                "links": [
+                    {
+                        "name": "css tool",
+                        "url": "/jspage/csstool.html"
+                    },
+                    {
+                        "name": "zen html",
+                        "url": "/jspage/zenhtml.html"
+                    },
+                    {
+                        "name": "hover白光闪过",
+                        "url": "/jspage/csswhite.html"
+                    }
+                ]
+            },
+            {
+                "name": "备份",
+                "title": "简单易忘片段",
+                "url": "/jspage/keycode.html",
+                "links": [
+                    {
+                        "name": "code part",
+                        "url": "/jspage/keycode.html"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "前端规范",
+        "url": "/jspage/jsmodel.html",
+        "tag": [
+            {
+                "name": "js相关",
+                "title": "js模块化",
+                "url": "/jspage/jsmodel.html",
+                "links": [
+                    {
+                        "name": "js模块化",
+                        "url": "/jspage/jsmodel.html"
+                    },
+                    {
+                        "name": "ajax模块化",
+                        "url": "/jspage/ajaxmodel.html"
+                    },
+                    {
+                        "name": "font-icon 图标字体",
+                        "url": "/page/font.html"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "章鱼fend",
+        "url": "#",
+        "tag": [
+            {
+                "name": "UI",
+                "url": "#",
+                "links": [
+                    {
+                        "name": "滚动条插件",
+                        "url": "/page/zlibplug/scroll.html"
+                    },
+                    {
+                        "name": "水纹插件",
+                        "url": "/page/zlibui/wave.html"
+                    }
+                ]
+            },
+            {
+                "name": "zpanel",
+                "url": "#",
+                "links": [
+                    {
+                        "name": "后台弹窗",
+                        "url": "/wiki/zalert/yoyo.html"
+                    }
+                ]
+            }
+        ]
+    }
+]

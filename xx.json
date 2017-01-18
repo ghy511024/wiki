@@ -1,0 +1,338 @@
+{
+    "arts": [
+        {
+            "name": "全部",
+            "type": "art",
+            "liveChannelInfos": [{
+                    "_id": "5_1380872469064",
+                    "cname": "山西彩民在线",
+                    "online": 0,
+                    "imageUrl": "http://img2sy1.m0ppcdn.kukuplay.com/data/5_1380872469064_1411183652910/snapshot.jpg",
+                    "navType": 314,
+                    "channelTypes": ["1410840974548_488_1411013542465_140", "1410840974548_488"],
+                    "cur_sid": "5_1380872469064_1411183652910",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1380872469064.htm"
+                },
+                {
+                    "_id": "5_1385460180762",
+                    "cname": "江苏公共频道",
+                    "online": 0,
+                    "imageUrl": "http://img4dy2.m4ppcdn.kukuplay.com/data/5_1385460180762_1416552134892/snapshot.jpg",
+                    "navType": 312,
+                    "channelTypes": ["1410840974548_488_1411013535553_963", "1410840974548_488"],
+                    "cur_sid": "5_1385460180762_1416552134892",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1385460180762.htm"
+                }, {
+                    "_id": "5_1385460307240",
+                    "cname": "舟山就业服务",
+                    "online": 0,
+                    "imageUrl": "http://img2shaox4.m1ppcdn.kukuplay.com/data/5_1385460307240_1385460307240136/snapshot.jpg",
+                    "navType": 313,
+                    "channelTypes": ["1410840974548_488_1411013538809_850", "1410840974548_488"],
+                    "cur_sid": "5_1385460307240_1385460307240136",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1385460307240.htm"
+                }, {
+                    "_id": "5_1385449500510",
+                    "cname": "上海生活时尚",
+                    "online": 0,
+                    "imageUrl": "http://img1wx8.m1ppcdn.kukuplay.com/data/5_1385449500510_1418632513602/snapshot.jpg",
+                    "navType": 304,
+                    "channelTypes": ["1410840974548_488_1411013501121_90", "1410840974548_488"],
+                    "program": {
+                        "titleup": "X诊所"
+                    },
+                    "cur_sid": "5_1385449500510_1401543258795",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1385449500510.htm"
+                }, {
+                    "_id": "5_1354508939508",
+                    "cname": "青岛生活频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "program": {
+                        "titleup": "真情调解"
+                    },
+                    "cur_sid": "5_1354508939508_1401528491290",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1354508939508.htm"
+                }, {
+                    "_id": "5_1356000591749",
+                    "cname": "青岛都市频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "cur_sid": "5_1356000591749_1401528594669",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356000591749.htm"
+                }, {
+                    "_id": "5_1356060723260",
+                    "cname": "青岛财经频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "cur_sid": "5_1356060723260_1401528566202",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl":
+                            "http://www.fengyunzhibo.com/tv/5_1356060723260.htm"
+                }, {
+                    "_id": "5_1356061467713",
+                    "cname": "青岛青少频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "cur_sid": "5_1356061467713_1401528622905",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356061467713.htm"
+                },
+                {
+                    "_id": "5_1356071259783",
+                    "cname": "江阴民生频道",
+                    "online": 0,
+                    "imageUrl": "http://img1wx5.m1ppcdn.kukuplay.com/data/5_1356071259783_1386556579649/snapshot.jpg",
+                    "navType": 312,
+                    "channelTypes": ["1410840974548_488_1411013535553_963", "1410840974548_488"],
+                    "cur_sid": "5_1356071259783_1386556579649",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356071259783.htm"
+                }]
+        },
+        {
+            "name": "卫视",
+            "type": "tv",
+            "liveChannelInfos": [{
+                    "_id": "265_1369827349151",
+                    "cname": "金凤",
+                    "online": 0,
+                    "imageUrl": "http://img6shaox5.m1ppcdn.kukuplay.com/data/265_1369827349151_1461807599059/snapshot.jpg",
+                    "navType": 555,
+                    "channelTypes": ["1410841076290_518"],
+                    "cur_sid": "265_1369827349151_1458781728323",
+                    "uid": "265",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/265_1369827349151.htm"
+                }]
+        }, {
+            "name": "央视",
+            "type": "cctv",
+            "liveChannelInfos": [{
+                    "_id": "265_1350874773281",
+                    "cname": "党建频道",
+                    "online": 0,
+                    "navType": 335,
+                    "channelTypes": ["1410841099672_325"],
+                    "cur_sid": "265_1350874773281_1413694213356",
+                    "uid": "265",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/265_1350874773281.htm"
+                },
+                {
+                    "_id": "236_1353990608086",
+                    "cname": "CCTV 发现之旅",
+                    "online": 0,
+                    "navType": 302,
+                    "channelTypes": ["1410841099672_325"],
+                    "cur_sid": "236_1353990608086_1381629482660",
+                    "uid": "236",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/236_1353990608086.htm"
+                }]
+        }, {
+            "name": "地方",
+            "type": "local",
+            "liveChannelInfos": [{
+                    "_id": "5_1380872469064",
+                    "cname": "山西彩民在线",
+                    "online": 0,
+                    "imageUrl": "http://img2sy1.m0ppcdn.kukuplay.com/data/5_1380872469064_1411183652910/snapshot.jpg",
+                    "navType": 314,
+                    "channelTypes": ["1410840974548_488_1411013542465_140", "1410840974548_488"],
+                    "cur_sid": "5_1380872469064_1411183652910",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1380872469064.htm"
+                }, {
+                    "_id": "5_1385460180762",
+                    "cname": "江苏公共频道",
+                    "online": 0,
+                    "imageUrl": "http://img4dy2.m4ppcdn.kukuplay.com/data/5_1385460180762_1416552134892/snapshot.jpg",
+                    "navType": 312,
+                    "channelTypes": ["1410840974548_488_1411013535553_963",
+                        "1410840974548_488"],
+                    "cur_sid": "5_1385460180762_1416552134892",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1385460180762.htm"
+                },
+                {
+                    "_id": "5_1385460307240",
+                    "cname": "舟山就业服务",
+                    "online": 0,
+                    "imageUrl": "http://img2shaox4.m1ppcdn.kukuplay.com/data/5_1385460307240_1385460307240136/snapshot.jpg",
+                    "navType": 313,
+                    "channelTypes": ["1410840974548_488_1411013538809_850", "1410840974548_488"],
+                    "cur_sid": "5_1385460307240_1385460307240136",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1385460307240.htm"
+                },
+                {
+                    "_id": "5_1385449500510",
+                    "cname": "上海生活时尚",
+                    "online": 0,
+                    "imageUrl": "http://img1wx8.m1ppcdn.kukuplay.com/data/5_1385449500510_1418632513602/snapshot.jpg",
+                    "navType": 304,
+                    "channelTypes": ["1410840974548_488_1411013501121_90", "1410840974548_488"],
+                    "program": {
+                        "titleup": "X诊所"
+                    },
+                    "cur_sid": "5_1385449500510_1401543258795",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1385449500510.htm"
+                }, {
+                    "_id": "5_1354508939508",
+                    "cname": "青岛生活频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "program": {
+                        "titleup": "真情调解"
+                    },
+                    "cur_sid": "5_1354508939508_1401528491290",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1354508939508.htm"
+                }, {
+                    "_id": "5_1356000591749",
+                    "cname": "青岛都市频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "cur_sid": "5_1356000591749_1401528594669",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356000591749.htm"
+                }, {
+                    "_id": "5_1356060723260",
+                    "cname": "青岛财经频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "cur_sid": "5_1356060723260_1401528566202",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356060723260.htm"
+                }, {
+                    "_id": "5_1356061467713",
+                    "cname": "青岛青少频道",
+                    "online": 0,
+                    "navType": 351,
+                    "channelTypes": ["1410840974548_488_1411013604289_554", "1410840974548_488"],
+                    "cur_sid": "5_1356061467713_1401528622905",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356061467713.htm"
+                },
+                {
+                    "_id": "5_1356071259783",
+                    "cname": "江阴民生频道",
+                    "online": 0,
+                    "imageUrl": "http://img1wx5.m1ppcdn.kukuplay.com/data/5_1356071259783_1386556579649/snapshot.jpg",
+                    "navType": 312,
+                    "channelTypes": ["1410840974548_488_1411013535553_963", "1410840974548_488"],
+                    "cur_sid": "5_1356071259783_1386556579649",
+                    "uid": "5",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/5_1356071259783.htm"
+                }]
+        }],
+    "games": [{
+            "name": "全部",
+            "type": "game",
+            "liveChannelInfos": []
+        }, {
+            "name": "英雄联盟",
+            "type": "lol",
+            "liveChannelInfos": []
+        }, {
+            "name": "dota2",
+            "type": "dota2",
+            "liveChannelInfos": []
+        }, {
+            "name": "炉石传说",
+            "type": "stone",
+            "liveChannelInfos": []
+        },
+        {
+            "name": "其它",
+            "type": "gameother",
+            "liveChannelInfos": []
+        }],
+    "sports": [{
+            "name": "全部",
+            "type": "sport",
+            "liveChannelInfos": [{
+                    "_id": "zy_1443086979387",
+                    "cname": "[银桶]朱婷最新比赛回放",
+                    "online": 2,
+                    "imageUrl": "http://snapshot.kukuplay.com/zy_1443086979387/snapshot.jpg",
+                    "navType": 104,
+                    "channelTypes": ["1417166756279_666"],
+                    "cur_sid": "zy_1443086979387_1443086979387571",
+                    "uid": "zy",
+                    "pcStatus": true,
+                    "mobileStatus": true,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/zy_1443086979387.htm"
+                },
+                {
+                    "_id": "hbty",
+                    "cname": "湖北体育",
+                    "online": 0,
+                    "imageUrl": "http://img3sr1.m3ppcdn.kukuplay.com/data/hbty_1414479431722/snapshot.jpg",
+                    "navType": 101,
+                    "channelTypes": ["1410841012605_150"],
+                    "program": {
+                        "titleup": "社区那些事"
+                    },
+                    "cur_sid": "hbty_1414479431722",
+                    "uid": "265",
+                    "pcStatus": true,
+                    "mobileStatus": false,
+                    "redirectUrl": "http://www.fengyunzhibo.com/tv/hbty.htm"
+                }]
+        }]
+,"directors":[{"name":"全部","type":"director","liveChannelInfos":[]}]}
