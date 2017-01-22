@@ -9,50 +9,26 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/test.css"/>
         <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
-        <script type="text/javascript" src="../dist/zlib.js"></script>
-        <script type="text/javascript" src="../zlib/window/mousewheel.js"></script>
-        <script type="text/javascript" src="../zdrag/js/drag.js"></script>
-        <script type="text/javascript" src="js/zscroll.js"></script>
-        <style>
-            .aa{
-                position:relative;
-                width:300px;
-                height:400px;
-                background: red;
-                overflow: hidden;
-            }
-            .bb{
-                height: 500px;
-                width:100%;
-                background: -webkit-linear-gradient(top,#CE20B5,#56DBE2);
-            }
-            .cc{
-                height: 100px;background: yellow;
-            }
-        </style>
+        <script type="text/javascript" src="/dist/zlib.js"></script>
+        <script type="text/javascript" src="js/zslide.js"></script>
     </head>
     <body>
-        <div class="aa">
-            <div class="sc_content">
-                <div class="bb"></div>
-            </div>
+        <div class="zslide-wrap" id="test">
+            <ul class="zslide-content list clear ">
+                <li class="zslide-item" style="background-color: yellow">1</li>
+                <li class="zslide-item"  style="background-color: red">2</li>
+                <li class="zslide-item"  style="background-color: orange">3</li>
+                <li class="zslide-item"  style="background-color: black">4</li>
+                <li class="zslide-item"  style="background-color: pink">5</li>
+                <li class="zslide-item"  style="background-color: blue">6</li>
+            </ul>
         </div>
-        <button id="update">update</button>
-        <script>
-            $(function () {
-                var sc = new zlib.ui.zscroll($(".aa"));
-                $("#update").click(function() {
-                    for(var i = 0;i<10;i++){
-                        var random1 = parseInt(Math.random() * 300);
-                        var random2 = parseInt(Math.random() * 100);
-                        var random3 = parseInt(Math.random() * 80);
-                        var bgColor = "rgb("+ random1 +", "+ random2 +"," +  random3 + ")";
-                        var app = $("<div style='height:200px;background:" + bgColor + "'></div>")
-                        $(".sc_content").append(app)
-                    }
-                })
-            })
+        <button id="pre">pre</button>
+        <button id="next">next</button>
+        <script type="text/javascript">
+            var slide1 = new zlib.plug.zslide($("#test"));
         </script>
     </body>
 </html>

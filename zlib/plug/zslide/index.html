@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>轮播图</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+<div class="content">
+    <ul class="list clearfix ">
+        <li style="background-color: yellow"></li>
+        <li style="background-color: red"></li>
+        <li style="background-color: orange"></li>
+        <li style="background-color: black"></li>
+        <li style="background-color: pink"></li>
+        <li style="background-color: blue"></li>
+    </ul>
+    <a href="javascript:;" class="left" id="left"><</a>
+    <a href="javascript:;" class="right" id="right">></a>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        ZYCA({
+            main: $(".content"),
+            leftBtn: $("#left"),
+            rightBtn: $("#right"),
+            speed: 3000
+        }).init();
+    })
+</script>
+</body>
+</html>

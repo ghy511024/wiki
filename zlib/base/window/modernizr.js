@@ -103,12 +103,12 @@
             }
         return a(), !1
     }
-    function v(e, n, t, s, o) {
+    function testProperty(e, n, t, s, o) {
         var i = e.charAt(0).toUpperCase() + e.slice(1), a = (e + " " + P.join(i + " ") + i).split(" ");
         return r(n, "string") || r(n, "undefined") ? h(a, n, s, o) : (a = (e + " " + z.join(i + " ") + i).split(" "), p(a, n, t))
     }
-    function g(e, n, r) {
-        return v(e, t, t, n, r)
+    function testNormal(e, n, r) {
+        return testProperty(e, t, t, n, r)
     }
     var y = [], C = [], w = {_version: "3.2.0", _config: {classPrefix: "", enableClasses: !0, enableJSClass: !0, usePrefixes: !0}, _q: [], on: function (e, n) {
             var t = this;
@@ -133,19 +133,31 @@
     var E = {style: T.elem.style};
     Modernizr._q.unshift(function () {
         delete E.style
-    }), w.testAllProps = v, w.testAllProps = g, Modernizr.addTest("csstransforms", function () {
-        return-1 === navigator.userAgent.indexOf("Android 2.") && g("transform", "scale(1)", !0)
-    }), Modernizr.addTest("csstransitions", g("transition", "all", !0));
+    }), w.testAllProps = testProperty, w.testAllProps = testNormal,
+            Modernizr.addTest("csstransforms", function () {
+                var ret = -1 === navigator.userAgent.indexOf("Android 2.") && testNormal("transform", "scale(1)", !0)
+                window.zlib = window.zlib || {};
+                zlib.tranf = ret;
+                return ret
+            }), Modernizr.addTest("csstransitions", function () {
+
+        var ret = testNormal("transition", "all", !0)
+        window.zlib = window.zlib || {};
+        zlib.tran = ret;
+        return ret;
+    });
     var N = "CSS"in e && "supports"in e.CSS, k = "supportsCSS"in e;
     Modernizr.addTest("supports", N || k), Modernizr.addTest("csstransforms3d", function () {
-        var e = !!g("perspective", "1px", !0), n = Modernizr._config.usePrefixes;
-        if (e && (!n || "webkitPerspective"in S.style)) {
+        var ret = !!testNormal("perspective", "1px", !0), n = Modernizr._config.usePrefixes;
+        if (ret && (!n || "webkitPerspective"in S.style)) {
             var t, r = "#modernizr{width:0;height:0}";
             Modernizr.supports ? t = "@supports (perspective: 1px)" : (t = "@media (transform-3d)", n && (t += ",(-webkit-transform-3d)")), t += "{#modernizr{width:7px;height:18px;margin:0;padding:0;border:0}}", _(r + t, function (n) {
-                e = 7 === n.offsetWidth && 18 === n.offsetHeight
+                ret = 7 === n.offsetWidth && 18 === n.offsetHeight
             })
         }
-        return e
+        window.zlib = window.zlib || {};
+        zlib.tran3d = ret;
+        return ret
     }), s(), o(y), delete w.addTest, delete w.addAsyncTest;
     for (var A = 0; A < Modernizr._q.length; A++)
         Modernizr._q[A]();

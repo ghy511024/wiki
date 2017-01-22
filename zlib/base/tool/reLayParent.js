@@ -23,9 +23,6 @@
                 }
             }
         }
-
-
-
         if (position != "static") {
             $(mainDom).parent().css("position", position);
         }
