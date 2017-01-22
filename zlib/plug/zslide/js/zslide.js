@@ -11,10 +11,10 @@
         this.num = 0; // 轮播元素数量
         this.cur = 0; // 当前轮播元素
         this.item_width = 0;
-        this.duration = 3000; // 轮播间隙3秒
-        this.antime = 600;
+        this.duration = 4000; // 轮播间隙3秒
+        this.antime = 600;// 轮播切换时间
         this.locktime = 400;// 点击间隔锁，如果不上锁，则连击效果不好，上锁并且按照动画间隔时间来，则连击感觉卡顿等很久，体验不好，所以取一个比较合适的值
-        this.autoplay = false; // 自动轮播
+        this.autoplay = true; // 自动轮播
         this.el = $(el);
         this.elc = $(el).find(".zslide-content");
         this._init();
@@ -24,6 +24,7 @@
     var p = {
         _init: function () {
             this._layout();
+            this.autoPlayStart(true);
         },
         // 初始化
         _layout: function () {
@@ -46,7 +47,7 @@
                 if (i == 0) {
                     zydot.addClass("current");
                     zysvg.addClass("current");
-                    zysvg.find("path").stop().css({strokeDashoffset: "0"});
+//                    zysvg.find("path").stop().css({strokeDashoffset: "0"});
                 }
             }
             console.log("【zslide】插件初始化完成")
@@ -54,19 +55,38 @@
         // 绑定事件
         _initEvent: function () {
             $("#next").on("click", $.proxy(function () {
-                this.next();
+                if (!this.induration) {
+                    this.autoPlayStop();
+                    this.next();
+                    clearTimeout(this.timer);
+//                    this.timer = null;
+                    this.timer = setTimeout($.proxy(function () {
+                        this.autoPlayStart();
+                    }, this), this.duration);
+                }
             }, this))
-            $("#pre").on("click", $.proxy(function (el, el2) {
-                console.log(el.target);
-                this.pre();
+            $("#pre").on("click", $.proxy(function () {
+                if (!this.induration) {
+                    this.autoPlayStop();
+                    this.pre();
+                    clearTimeout(this.timer);
+                    this.timer = setTimeout($.proxy(function () {
+                        this.autoPlayStart();
+                    }, this), this.duration);
+                }
             }, this));
             $(document).on("click", ".zslide-dot", $.proxy(function (evt) {
+                this.autoPlayStop();
                 var _this = $(evt.target);
                 var tag = _this.attr("tag") || _this.parent().attr("tag");
                 tag = Number(tag) || 0;
                 this._controlClear();
                 this._moveTo(tag);
                 this._controlPlay();
+                clearTimeout(this.timer);
+                this.timer = setTimeout($.proxy(function () {
+                    this.autoPlayStart();
+                }, this), this.duration);
             }, this))
         },
         // 生成控制台条
@@ -91,66 +111,63 @@
                 "transform": "translate3d(" + x + "px, 0px, 0px)"
             })
         },
-        _mkstyle: function () {
-
-        },
         next: function () {
             // 上锁
-            if (!this.induration) {
-                console.log(this.num, this.cur);
-                this._controlClear();
-                var next = this.cur + 1;
-                if (next > this.num) {
-                    this._moveTo(0, 0)// 位置重置为初始
-                    next = 1;
-                }
-                //加timeout 让样式重置生效
-                setTimeout($.proxy(function () {
-                    this._moveTo(next);
-                    this.induration = true;
-                    this._controlPlay();
-                    setTimeout($.proxy(function () {
-                        this.induration = false;
-                    }, this), this.locktime);
-                }, this), 1);
+            console.log(this.num, this.cur);
+            this._controlClear();
+            var next = this.cur + 1;
+            if (next > this.num) {
+                this._moveTo(0, 0)// 位置重置为初始
+                next = 1;
             }
+            //加timeout 让样式重置生效
+            setTimeout($.proxy(function () {
+                this._moveTo(next);
+                this.induration = true;
+                this._controlPlay();
+                setTimeout($.proxy(function () {
+                    this.induration = false;
+                }, this), this.locktime);
+            }, this), 1);
         },
         pre: function () {
             // 上锁
-            if (!this.induration) {
-                console.log(this.num, this.cur);
-                this._controlClear();
-                var pre = this.cur - 1;
-                if (pre < 0) {
-                    this._moveTo(this.num, 0)// 位置重置为初始
-                    pre = this.num - 1;
-                }
-                setTimeout($.proxy(function () {
-                    this._moveTo(pre);
-                    this.induration = true;
-                    this._controlPlay();
-                    setTimeout($.proxy(function () {
-                        this.induration = false;
-                    }, this), this.locktime);
-                }, this), 1);
-
+//            if (!this.induration) {
+            this._controlClear();
+            var pre = this.cur - 1;
+            if (pre < 0) {
+                this._moveTo(this.num, 0)// 位置重置为初始
+                pre = this.num - 1;
             }
+            setTimeout($.proxy(function () {
+                this._moveTo(pre);
+                this.induration = true;
+                this._controlPlay();
+                setTimeout($.proxy(function () {
+                    this.induration = false;
+                }, this), this.locktime);
+            }, this), 1);
+//            }
         },
         _controlClear: function () {
             $(".zslide-circle.current").find("path").stop().animate({strokeDashoffset: "295.416"}, 400);
             $(".zslide-dot.current").removeClass("current");
         },
         _controlPlay: function () {
-            $(".zslide-circle").eq(this.cur - 1).addClass("current").find("path").stop().animate({strokeDashoffset: "0"}, 4000);
+            $(".zslide-circle").eq(this.cur - 1).addClass("current").find("path").stop().animate({strokeDashoffset: "0"}, this.duration);
             $(".zslide-dot").eq(this.cur - 1).addClass("current");
         },
-        // 播放轮播控制
-        _playCir: function () {
-
-        },
         // 开始自动轮播
-        autoPlayStart: function () {
-
+        autoPlayStart: function (begin) {
+            if (!begin) {
+                this.next();
+            } else {
+                // 插件第一次加载时，不立即滚动，而是转圈计时
+                this._controlPlay();
+            }
+            this.interval = this.interval || setInterval($.proxy(function () {
+                this.next();
+            }, this), this.duration);
         },
         // 轮播暂停
         autoPlayPause: function () {
@@ -158,7 +175,8 @@
         },
         // 结束自动轮播
         autoPlayStop: function () {
-
+            clearInterval(this.interval)
+            this.interval = null;
         }
     }
     zlib.extend(slide, p); // 属性继承

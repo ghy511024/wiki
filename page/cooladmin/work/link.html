@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>coolAdmin--常用后台</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+        <script type="text/javascript" src="/page/header/js/adminload.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div class="content-title">
+                <h5>coolAdmin v3.0 后端使用教程</h5>
+            </div>
+            <!--            <div class="cond">
+                            <div class="form">
+                                <label>开始时间</label><input type="text" id="start-time" class="timepicker"/>
+                                <label>结束时间</label><input type="text" id="start-time" class="timepicker"/>
+                            </div>
+                        </div>-->
+            <div class="mt20">
+                <p>无论你的项目是一个全新的，还是已经开发成型需要重构的，你都可以很轻松的将coolAdmin运用到你项目的后端管理系统中。</p>
+                <p>下面将介绍如何将 coolAdmin 引用到你项目中的具体步骤</p>
+                <h3>1: 原始网页</h3>
+                <p>下面的列子是我们项目中的一个后端管理页面，后端管理页面能实现增删改查功能就满足后端工程师的基本需求了，所有没有什么框架。</p>
+                <pre><code class="language">
+                 &lt;head>
+                     &lt;title>xxx 操作管理页面&lt;/title>
+                     &lt;script  src="http://static.ws.kukuplay.com/common/lib/jquery/jquery-1.9.4.js"> &lt;/script>
+                 &lt;/head>
+                &lt;body>
+                    &lt;div>
+                       &lt;button id="search"> 查询 &lt;/button>
+                     表格xxx
+                    &lt;/div>
+                    &lt;script type="text/javascript">
+                          $(document).ready(function(){
+                            $("#search").on("click",function(){
+                                //do something
+                            })
+                        })
+                    &lt;/script>
+                &lt;/body>
+            </code></pre>
+                <h3 class="mt50">2: JSP 项目引入 coolAdmin</h3>
+                <h4>1.新建clib.jsp(名字随意)</h4>
+                <div class="margin-top">
+                    <pre><code class="language">
+&lt;%@page contentType="text/html" pageEncoding="UTF-8"%>
+&lt;link rel="stylesheet" href="http://static.ws.kukuplay.com/common/lib/bootstrap/v3.3.5/css/bootstrap.min.css"/>
+&lt;link rel="stylesheet" href="http://static.ws.kukuplay.com/common/lib/jquery-ui/v1.8.21/jquery-ui.1.8.21.min.css"/>
+&lt;link rel="stylesheet" href="http://static.ws.kukuplay.com/common/styles/dataTables.bootstrap.css"/>
+&lt;!--自定义后端样式-->
+&lt;link rel="stylesheet" href="http://static.ws.kukuplay.com/common/lib/zylib/v3.0/adminpageV3.9.css"/>
+&lt;!--核心类库-->
+&lt;script  src="http://static.ws.kukuplay.com/common/lib/jquery/jquery-1.9.4.js">&lt;/script>
+&lt;script  src="http://static.ws.kukuplay.com/common/lib/bootstrap/v3.3.5/js/bootstrap.min.js">&lt;/script>
+&lt;!--日期控件-->
+&lt;script  src="http://static.ws.kukuplay.com/common/lib/jquery-ui/v1.8.21/jquery-ui.1.8.21.min.js">&lt;/script>
+&lt;script type="text/javascript" src="http://static.ws.kukuplay.com/common/date/jquery-ui-datetimepicker-zh-CN.js">&lt;/script>
+&lt;!--数据表格库-->
+&lt;script  src="http://static.ws.kukuplay.com/common/scripts/lib/jquery.dataTables.min.js">&lt;/script>
+&lt;script  src="http://static.ws.kukuplay.com/common/scripts/lib/dataTables.bootstrap.js">&lt;/script>
+&lt;!--后端底层库-->
+&lt;script src="http://static.ws.kukuplay.com/common/lib/zylib/v3.0/adminV3.9.js">&lt;/script>
+
+&lt;script >
+    window.HOME_LINK = "/admin";// 【可改】 此连接为导航上那个 home(小房子) 图标跳转连接，一般为项目后端管理页面的首页
+    window.CONF_URL = "/adminpage.json";【顶部导航配置获取地址(章鱼项目不用配置这一选项)】
+    window.zadmin = (function (fun) {
+        var tmpfun = [];
+        admin = {
+            ready: function (fun) {
+                if (typeof fun === "function") {
+                    tmpfun.push(fun);
+                }
+            }, init: function () {
+                for (var i in tmpfun) {
+                    tmpfun[i]();
+                }
+            }
+        };
+        return admin;
+    })();
+&lt;/script>
+
+</code></pre>
+                    <h4>2.页面引用clib.jsp</h4>
+                    <pre><code class="language">
+  &lt;head>
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        &lt;title>后端xxx 配置&lt;/title>
+        //############项目中引用刚才编写的jsp############
+        &lt;jsp:include page="clib与此页面的相对路径/clib.jsp">&lt;/jsp:include>
+    &lt;/head>
+   &lt;body>
+        //############外面包裹一层 赋值一个 coolAdmin 可是别的id（id="content"）############
+        &lt;div id="content">
+             &lt;div class="content-title">
+                &lt;h5>标题&lt;/h5>
+             &lt;/div>
+             &lt;div>
+                 &lt;button id="search"> 查询 &lt;/button>
+                表格xxx
+             &lt;/div>
+        &lt;/div>
+        &lt;script type="text/javascript">
+        //############为保证更稳健的业务逻辑，建议将 $(document).ready 替换为 zadmin.ready############
+        //############少数特殊情况下 $(document).ready 里面的逻辑在使用 admin类库中一些函数时，在执行优先顺序上会出现问题############
+        //############这种特殊情况会在后面的篇幅更详细的介绍，如果是非常简单的业务逻辑，大家可以不用考虑，但建议都使用下面的写法############
+             zadmin.ready(function(){
+                $("#search").on("click",function(){
+                    //do something
+                })
+            })
+        &lt;/script>
+    &lt;/body>
+</code></pre>
+                    <h4>3.新建 adminpage.json 文件</h4>
+                    <p>
+                        在项目访问的根路径（javaweb 项目一般是 web 目录下）新建空白文件, 取名为 adminpage.json(名字无所谓，但需要时.json结尾，并且保证clib 配置中 window.CONF_URL 的访问路径与此文件的访问路径一致即可)。
+                    </p>
+                    <p>章鱼项目不用配置此文件，章鱼后端项目，配置文件从服务器获取，其他项目则可以单建文件</p>
+                    <p>文件内容示例</p>
+                    <pre><code>
+[
+    {
+        "name": "coolAdmin",
+        "url": "/page/cooladmin/course/start.html",
+        "tag": [
+            {
+                "name": "光速上手",
+                "url": "/page/cooladmin/course/start.html",
+                "links": [
+                    {
+                        "name": "cdn 资源集合",
+                        "url": "/page/cooladmin/course/cdnlib.html"
+                    }
+                ]
+            }
+        ]
+    }
+    , {
+        "name": "develop js",
+        "url": "/jspage/html5video.html",
+        "tag": [
+            {
+                "name": "常用插件",
+                "url": "/jspage/html5video.html",
+                "links": [
+                    {
+                        "name": "html5 video",
+                        "url": "/jspage/html5video.html"
+                    }
+                ]
+            }
+        ]
+    }
+]
+</code></pre>
+                    <h3 class="mt50">3: 普通项目（纯静态html） 引入coolAdmin</h3>
+                    <h4>1.找到自己原来的html 文件</h4>
+                    <pre><code class="language">
+                 &lt;head>
+                     &lt;title>xxx 操作管理页面&lt;/title>
+                     &lt;script  src="http://static.ws.kukuplay.com/common/lib/jquery/jquery-1.9.4.js"> &lt;/script>
+                 &lt;/head>
+                &lt;body>
+                    &lt;div>
+                       &lt;button id="search"> 查询 &lt;/button>
+                     表格xxx
+                    &lt;/div>
+                    &lt;script type="text/javascript">
+                         $(document).ready(function(){
+                            $("#search").on("click",function(){
+                                //do something
+                            })
+                        })
+                    &lt;/script>
+                &lt;/body>
+            </code></pre>
+                    <h4>2. 新建 adminload.js</h4>
+                    <p>
+                        在项目中新建一个js（adminload.js），名字没有要求啦， 然后<strong>将下面的拷贝到js中</strong>,管理页面引用此js。
+                    </p>
+                    <pre><code class="language">
+            /**
+             * 后端版本控制 加载 js 类库和css 类库
+             * */
+            (function () {
+                var Z = document.getElementsByTagName('script')[0];
+                var csss = [
+                    "http://static.ws.kukuplay.com/common/lib/bootstrap/v3.3.5/css/bootstrap.min.css", //bootstrap 核心
+                    "http://static.ws.kukuplay.com/common/lib/jquery-ui/v1.8.21/jquery-ui.1.8.21.min.css",
+                    "http://static.ws.kukuplay.com/common/styles/dataTables.bootstrap.css",
+                    "http://static.ws.kukuplay.com/common/lib/zylib/v3.0/adminpageV3.9.css" //【如需升级可改】 后端样式（此版本可能会升级）
+                ];
+                var jss = [
+                    "http://static.ws.kukuplay.com/common/lib/bootstrap/v3.3.5/js/bootstrap.min.js", //bootstrap 核心
+                    "http://static.ws.kukuplay.com/common/lib/jquery-ui/v1.8.21/jquery-ui.1.8.21.min.js", //jquery ui 日期插件
+                    "http://static.ws.kukuplay.com/common/scripts/lib/jquery.dataTables.min.js", // 数据表格
+                    "http://static.ws.kukuplay.com/common/scripts/lib/dataTables.bootstrap.js",
+                   "http://static.ws.kukuplay.com/common/lib/zylib/v3.0/adminV3.9.js", //【如需升级可改】 后端底层类库（此版本可能会升级）
+                ];
+                for (var i = 0; i < csss.length; i++) {
+                    var tmpcss = document.createElement('link');
+                    tmpcss.rel = "stylesheet";
+                    tmpcss.href = csss[i];
+                    Z.parentNode.insertBefore(tmpcss, Z);
+                }
+                for (var i = 0; i < jss.length; i++) {
+                    var tmpjs = document.createElement('script');
+                    tmpjs.type = 'text/javascript';
+                    tmpjs.async = false;
+                    tmpjs.src = jss[i];
+                    Z.parentNode.insertBefore(tmpjs, Z);
+                }
+                window.HOME_LINK = "/";// 【可改】 此连接为导航上那个 home(小房子) 图标跳转连接，一般为项目后端管理页面的首页
+                window.zadmin = (function (fun) {
+                    var tmpfun = [];
+                    admin = {
+                        ready: function (fun) {
+                            if (typeof fun === "function") {
+                                tmpfun.push(fun);
+                            }
+                        }, init: function () {
+                            for (var i in tmpfun) {
+                                tmpfun[i]();
+                            }
+                        }
+                    };
+                    return admin;
+                })();
+            })();
+
+ //    
+            /**
+             *  
+             * 页面配置 没有下面配置则默认从服务器获取信息 
+             * 配置信息读取 配置地址 window.CONF_URL="/adminpage.json";(章鱼同学请咨询小龚，从而获得详细地址)
+             * 小型项目（博客，单个项目等）在没有服务器接口的情况下，可采用下面配置（有服务器地址的就无需下面配置）
+             * 【如果没有配置文件 则可在js 下面这样配置（adminpage.json，与下面配置，二者取一）】
+             * */
+            window.AdminPage = [{
+                    name: "coolAdmin 入门",
+                    url: "/page/start.html",
+                    tag: [
+                        {
+                            name: "资源集合",
+                            title: "常用资源集合",
+                            url: "/",
+                            links: [
+                                {
+                                    name: "cdn 类库",
+                                    url: "/"
+                                },
+                                {
+                                    name: "模块依赖资源",
+                                    url: "/page/basicdep.html"
+                                }
+                            ]
+                        },
+                         {
+                            name: "光速上手",
+                            title: "上手指南",
+                            url: "/page/start.html",
+                            links: [
+                                {
+                                    name: "开始使用",
+                                    url: "/page/start.html"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+            </code></pre>
+                    <p>上面配置文件中，window.AdminPage 这个是需要自己配置的，上面数据只是一个demo ，配置链接是相对于根目录的。其他的不用动，原封不动的拷贝就行</p>
+                    <h3 class="mt50">4:最后一步 包裹页面</h3>
+                    <p> 我们要将我们以前的业务逻辑用一个可识别的id 包裹起来，这样 coolAdmin 就知道该如何去包裹你的页面</p>
+                    <pre><code class="language">
+                 &lt;head>
+                     &lt;title>xxx 操作管理页面&lt;/title>
+                     &lt;script  src="http://static.ws.kukuplay.com/common/lib/jquery/jquery-1.9.4.js"> &lt;/script>
+                    //############配置文件，放入项目中（尽量不要放在cdn上，应为在项目中统一控制后端类库版本升级更为方便）############
+                    //############配置文件的配置使用方法将在第3步给大家介绍############
+                    &lt;script type="text/javascript" src="项目路径/adminload.js"> &lt;/script>
+                 &lt;/head>
+                &lt;body>
+                    //############外面包裹一层 赋值一个 coolAdmin 可是别的id（id="content"）############
+                    &lt;div id="content">
+                         &lt;div class="content-title">
+                            &lt;h5>标题&lt;/h5>
+                         &lt;/div>
+                         &lt;div>
+                             &lt;button id="search"> 查询 &lt;/button>
+                            表格xxx
+                         &lt;/div>
+                    &lt;/div>
+                    &lt;script type="text/javascript">
+                    //############为保证更稳健的业务逻辑，建议将 $(document).ready 替换为 zadmin.ready############
+                    //############少数特殊情况下 $(document).ready 里面的逻辑在使用 admin类库中一些函数时，在执行优先顺序上会出现问题############
+                    //############这种特殊情况会在后面的篇幅更详细的介绍，如果是非常简单的业务逻辑，大家可以不用考虑，但建议都使用下面的写法############
+                         zadmin.ready(function(){
+                            $("#search").on("click",function(){
+                                //do something
+                            })
+                        })
+                    &lt;/script>
+                &lt;/body>
+            </code></pre>
+                    <h3  class="mt50">4:其他说明</h3>
+                    <p>接口适用于大型网站后端，后端结构复杂，管理页面极其多的情况下比较容易维护扩展。静态配置适用于轻博客之类的文档介绍，优点是简单，缺点是每个页面都要引用配置文件</p>
+                    <p>类库在不断升级，截至到17年1月，用的是V3.9版本。</p>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
