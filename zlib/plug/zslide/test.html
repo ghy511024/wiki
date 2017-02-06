@@ -13,20 +13,22 @@ and open the template in the editor.
         <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
         <script type="text/javascript" src="/dist/zlib.js"></script>
         <script type="text/javascript" src="js/zslide.js"></script>
+        <style type="text/css">
+            #test{
+                width:500px;
+                height:300px;
+            }
+        </style>
     </head>
     <body>
         <div class="zslide-wrap" id="test">
-            <ul class="zslide-content list clear ">
-                <li class="zslide-item" style="background-color: yellow">1</li>
-                <li class="zslide-item"  style="background-color: red">2</li>
-                <li class="zslide-item"  style="background-color: orange">3</li>
-                <li class="zslide-item"  style="background-color: black">4</li>
-                <li class="zslide-item"  style="background-color: pink">5</li>
-                <li class="zslide-item"  style="background-color: blue">6</li>
+            <ul class="zslide-content">
+                <li class="zslide-item" style="background-color: yellow"></li>
+                <li class="zslide-item"  style="background-color: red"></li>
+                <li class="zslide-item"  style="background-color: orange"></li>
+                <li class="zslide-item"  style="background-color: pink"></li>
             </ul>
         </div>
-        <button id="pre">pre</button>
-        <button id="next">next</button>
         <script type="text/javascript">
             var slide1 = new zlib.plug.zslide($("#test"));
         </script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>zlib zslide--章鱼wiki </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+        <script type="text/javascript" src="/page/header/js/adminload.js"></script>
+        <script type="text/javascript" src="/dist/zlib.js"></script>
+        <script type="text/javascript" src="/zlib/plug/zslide/js/zslide.js"></script>
+        <link rel="stylesheet" href="css/zslide.css"/>
+        <style type="text/css">
+            #test{
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div class="content-title">
+                <h5>章鱼轮播插件 （2017 开年第一弹）</h5>
+            </div>
+            <div class="main">
+                <div class="zslide-wrap" id="test" style="width:500px;height:300px;">
+                    <ul class="zslide-content">
+                        <li class="zslide-item"  style="background-color: yellow"></li>
+                        <li class="zslide-item"  style="background-color: red"></li>
+                        <li class="zslide-item"  style="background-color: orange"></li>
+                        <li class="zslide-item"  style="background-color: pink"></li>
+                    </ul>
+                </div>
+                <h4>1.引入插件</h4>
+                <pre><code class="language">
+      &lt;script type="text/javascript" src="xxx/zlib.js">&lt;/script>
+      &lt;script type="text/javascript" src="xxx/zslide.js">&lt;/script>
+      &lt;link rel="stylesheet" href="xxx/zslide.css"/>
+                </code></pre>
+                <h4>2.code html</h4>
+                <p>html中class类名是必须的，id 和style属性并不是，所以请随意更改id但不要更改class</p>
+                <p>zslide-wrap 宽高需要用户根据自己的业务需要自己设定</p>
+                <pre><code class="language">
+            &lt;div class="zslide-wrap" id="test" style="width:500px;height:300px;">
+                &lt;ul class="zslide-content">
+                    &lt;li class="zslide-item"  style="background-color: yellow">&lt;/li>
+                    &lt;li class="zslide-item"  style="background-color: red">&lt;/li>
+                    &lt;li class="zslide-item"  style="background-color: orange">&lt;/li>
+                    &lt;li class="zslide-item"  style="background-color: pink">&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+                </code></pre>
+                <h4>3.使用插件</h4>
+                <pre><code class="language">
+            &lt;script type="text/javascript">
+                var slide1 = new zlib.plug.zslide($("#test"));
+            &lt;/script>
+                </code></pre>
+                <p>插件支持ie7,ie8以下转圈动画将失效但功能均正常使用。</p>
+                <h4>4.参数支持</h4>
+                <pre><code class="language">
+            &lt;script type="text/javascript">
+                var slide1 = new zlib.plug.zslide($("#test"),{
+                duration: 5000, // 轮播间隙5秒
+                antime: 600, // 轮播切换时间
+                locktime: 400, // 点击间隔锁，如果不上锁，则连击效果不好，上锁并且按照动画间隔时间来，则连击感觉卡顿等很久，体验不好，所以取一个比较合适的值
+                autoplay: true // 自动轮播
+                });
+            &lt;/script>
+                </code></pre>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var slide1 = new zlib.plug.zslide($("#test"));
+        </script>
+    </body>
+</html> 
+

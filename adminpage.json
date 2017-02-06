@@ -42,12 +42,8 @@
         "tag": [
             {
                 "name": "UI",
-                "url": "#",
+                "url": "/page/zlibui/wave.html",
                 "links": [
-                    {
-                        "name": "滚动条插件",
-                        "url": "/page/zlibplug/scroll.html"
-                    },
                     {
                         "name": "水纹插件",
                         "url": "/page/zlibui/wave.html"
@@ -55,12 +51,17 @@
                 ]
             },
             {
-                "name": "zpanel",
-                "url": "#",
+                "name": "扩展插件",
+                "url": "/page/zlibplug/scroll.html",
                 "links": [
+                    
                     {
-                        "name": "后台弹窗",
-                        "url": "/wiki/zalert/yoyo.html"
+                        "name": "滚动条插件",
+                        "url": "/page/zlibplug/scroll.html"
+                    },
+                    {
+                        "name": "轮播插件",
+                        "url": "/page/zlibplug/ghyhaha.html"
                     }
                 ]
             }

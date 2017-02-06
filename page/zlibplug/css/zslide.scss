@@ -1,9 +1,7 @@
 @charset "utf-8";
 *{margin:0px;padding:0px;}
 ul,li{list-style: none;}
-@mixin clear(){
-    *zoom: 1;&:after{content: "";display: table;clear: both;}
-}
+@mixin clear(){*zoom: 1;&:after{content: "";display: table;clear: both;}}
 @mixin inblock(){
     display: -moz-inline-stack;display: inline-block;vertical-align: top;zoom: 1; *display: inline;
 }
@@ -11,18 +9,13 @@ ul,li{list-style: none;}
     @include clear();
 }
 .zslide-wrap{
-    position:relative;
-    overflow: hidden;
-    margin:0px auto;
+    position:relative;overflow: hidden;margin:0px auto;
     .zslide-content{
         position: relative;
         width: 100%;
         height: 100%;
         z-index: 1;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
+        display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;
         display: flex;
         -webkit-transition-property: -webkit-transform;
         -moz-transition-property: -moz-transform;
@@ -52,7 +45,6 @@ ul,li{list-style: none;}
         width: 40px;
         height: 46px;
         margin-top: -23px;
-        /*color:transparent;*/
         -moz-user-select:none;
         -webkit-user-select:none;
         -ms-user-select:none;

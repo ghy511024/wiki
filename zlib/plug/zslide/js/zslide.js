@@ -6,15 +6,21 @@
 
 (function (zlib, plug) {
     "use strict";
-    function slide(el) {
+    var _default = {
+        duration: 5000, // 轮播间隙5秒
+        antime: 600, // 轮播切换时间
+        locktime: 400, // 点击间隔锁，如果不上锁，则连击效果不好，上锁并且按照动画间隔时间来，则连击感觉卡顿等很久，体验不好，所以取一个比较合适的值
+        autoplay: true // 自动轮播
+    };
+    function slide(el, options) {
+        var setting = $.extend({}, _default, options);
+        for (var key in setting) {
+            this[key] = setting[key];
+        }
         this.induration = false; // 是否在轮播间隔期
         this.num = 0; // 轮播元素数量
         this.cur = 0; // 当前轮播元素
         this.item_width = 0;
-        this.duration = 4000; // 轮播间隙3秒
-        this.antime = 600;// 轮播切换时间
-        this.locktime = 400;// 点击间隔锁，如果不上锁，则连击效果不好，上锁并且按照动画间隔时间来，则连击感觉卡顿等很久，体验不好，所以取一个比较合适的值
-        this.autoplay = true; // 自动轮播
         this.el = $(el);
         this.elc = $(el).find(".zslide-content");
         this._init();
@@ -35,6 +41,7 @@
             // 插件填充
             var lastitem = this.elc.find(".zslide-item:last").clone();
             this.elc.prepend(lastitem);
+
             this._moveTo(1, 0);
             // 添加旋转圆圈
             var control = $("<div class='zslide-controll'><div class='zslide-svg-wrap'></div><div class='zslide-dot-wrap'></div></div>")
@@ -47,25 +54,33 @@
                 if (i == 0) {
                     zydot.addClass("current");
                     zysvg.addClass("current");
-//                    zysvg.find("path").stop().css({strokeDashoffset: "0"});
                 }
+            }
+            // 添加左右控制按钮
+            this.pre_btn = $("<div class='zslide-btn pre-btn'>〈</div>");
+            this.next_btn = $("<div class='zslide-btn next-btn'>〉</div>");
+            this.el.append(this.pre_btn).append(this.next_btn);
+            // IE 补丁〉〈
+            if (!zlib.tran3d) {
+                this.el.addClass("IE");
+                this.elc.css({width: (this.item_width * (this.num + 1)), left: -this.item_width})
+                this.elc.find("li").css({width: this.item_width});
             }
             console.log("【zslide】插件初始化完成")
         },
         // 绑定事件
         _initEvent: function () {
-            $("#next").on("click", $.proxy(function () {
+            this.next_btn.on("click", $.proxy(function () {
                 if (!this.induration) {
                     this.autoPlayStop();
                     this.next();
                     clearTimeout(this.timer);
-//                    this.timer = null;
                     this.timer = setTimeout($.proxy(function () {
                         this.autoPlayStart();
                     }, this), this.duration);
                 }
             }, this))
-            $("#pre").on("click", $.proxy(function () {
+            this.pre_btn.on("click", $.proxy(function () {
                 if (!this.induration) {
                     this.autoPlayStop();
                     this.pre();
@@ -97,19 +112,36 @@
             var x = -(cur * this.item_width)
             console.log("【更改轮播】", " 当前元素位置：" + this.cur, " 目的位置：" + cur)
             this.cur = cur;
-            if (antime != null) {
-                antime = (Number(antime) || 0)
+            if (zlib.tran3d) {
+                if (antime != null) {
+                    antime = (Number(antime) || 0)
+                    this.elc.css({
+                        "transition-duration": antime + "ms"
+                    })
+                } else {
+                    this.elc.css({
+                        "transition-duration": this.antime + "ms"
+                    })
+                }
                 this.elc.css({
-                    "transition-duration": antime + "ms"
+                    "transform": "translate3d(" + x + "px, 0px, 0px)"
                 })
-            } else {
-                this.elc.css({
-                    "transition-duration": this.antime + "ms"
-                })
+            } else {// IE8 专用 使用jquery 的动画
+                var t = this.antime
+                if (antime != null) {
+                    antime = (Number(antime) || 0)
+                    if (antime <= 0) {
+                        this.elc.stop().css({left: x});
+                    } else {
+                        t = antime;
+                    }
+                }
+                if (t > 0) {
+                    this.elc.stop().animate({
+                        left: x
+                    }, t);
+                }
             }
-            this.elc.css({
-                "transform": "translate3d(" + x + "px, 0px, 0px)"
-            })
         },
         next: function () {
             // 上锁
@@ -131,7 +163,7 @@
             }, this), 1);
         },
         pre: function () {
-            // 上锁
+            // 上锁 （后来觉得没必要）
 //            if (!this.induration) {
             this._controlClear();
             var pre = this.cur - 1;
@@ -154,11 +186,16 @@
             $(".zslide-dot.current").removeClass("current");
         },
         _controlPlay: function () {
-            $(".zslide-circle").eq(this.cur - 1).addClass("current").find("path").stop().animate({strokeDashoffset: "0"}, this.duration);
+            if (this.autoplay) {
+                $(".zslide-circle").eq(this.cur - 1).addClass("current").find("path").stop().animate({strokeDashoffset: "0"}, this.duration);
+            }
             $(".zslide-dot").eq(this.cur - 1).addClass("current");
         },
         // 开始自动轮播
         autoPlayStart: function (begin) {
+            if (!this.autoplay) {
+                return;
+            }
             if (!begin) {
                 this.next();
             } else {
@@ -171,7 +208,6 @@
         },
         // 轮播暂停
         autoPlayPause: function () {
-
         },
         // 结束自动轮播
         autoPlayStop: function () {
