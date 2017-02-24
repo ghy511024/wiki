@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>fis3安装教程--demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+        <script type="text/javascript" src="/page/header/js/adminload.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div class="content-title">
+                <h5>fis3</h5>
+            </div>
+            <h4>1.安装nodejs</h4>
+            <p>本文只介绍window下的安装教程 </p>
+            <p><a href="http://nodejs.cn/#download" target="_blank">官网</a>下载最新版nodejs，一路双击安装</p>
+            <h4>2.安装fis3</h4>
+            <p> 安装教程参见 <a href="http://fis.baidu.com/" target="_blank">fis3 官网</a></p>
+            <h4>3.安装npm 全局必要插件</h4>
+            <pre><code class="language">
+        npm install -g fis3-jello
+        npm install -g fis3-postpackager-uglify-packto
+        npm install -g fis-parser-node-sass
+        npm install -g fuglify-js
+            </code></pre>
+            <h4>4.安装目录</h4>
+            <p>npm cache 目录: C:\Users\ghy\AppData\Roaming\npm-cache</p>
+            <p>npm 安装 目录: C:\Users\ghy\AppData\Roaming\npm</p>
+            <p>fis3 默认服务器发布目录: C:\Users\ghy\AppData\Local\.fis3-tmp</p>
+            <h4>5.bat脚本</h4>
+            <p>项目中新建一个文件夹命名为bat(名字随意)文件夹中新建脚本cmd_run.bat</p>
+            <pre><code class="language">
+        @echo off  
+        %~d0
+        cd %~dp0
+        fis3 server start -p 9000  && fis3 release -w -c
+            </code></pre>
+            <p></p>
+            <h4>配置文件</h4>
+            <p>项目根目录中新建文件 fis-conf.js 下面所有fis3的相关配置，都是在此js 配置中</p>
+            <h4>scss编译</h4>
+            <pre><code class="language">
+        fis.match(/^\/modules\/(.*\.(scss|less|css))$/i, {
+            rExt: '.css',
+            //sourceMap: true, // 用于页面中的cdn 资源重定位，小项目不开启
+            postprocessor: fis.plugin('autoprefixer', {
+                browsers: ['IE >= 8', 'Chrome >= 30', 'last 2 versions'] // pc
+                    // browsers: ['Android >= 4', 'ChromeAndroid > 1%', 'iOS >= 6'] // wap
+            })
+        });
+            </code></pre>
+            <p>需要注意一点，一旦使用fis3将是一个【不可逆】的开发流程，就是接下来的很多规则都必须按照fis3的规则来，新项目可以这么使用，但如果想把老项目迁移成fis3开发模式，则比较困难</p>
+            <p>页面引用css 变更（fis3 规则）</p>
+            <pre><code class="language">
+        // 不使用fis3传统引用css
+        &lt;link rel="stylesheet" href="css/abc.css" />
+        // 使用fis3编译html(或者jsp) 之后 引用css
+        &lt;link rel="stylesheet" href="css/abc.scss" />
+            </code></pre>
+            <p>当然如果你的静态页面不参与fis3的资源定位等编译，那可以自己去控制引用css 路径（需要写成fis3最终将scss生成为css后的路径）,如果是大型项目，并且上线后静态资源路径是走cdn路径，则最好让fis3参与页面编译（jsp，或者html页面）
+                则页面引用资源路径需要采用scss的路径。</p>
+            <p>细说一下，fis3 源码中实现资源定位是根据fis3生成的map.json 中去匹配的，编译的时候，scss 源路径会出现在map.json中的key中，能匹配上，而生成后的.css 只是map.json中某一个字段的value值，是无法匹配上的（除非你的某一个css是通过打包等方式生成的，那打包那个css则会出现在key中），所以fis3的资源定位，一切皆按照map.json中的配置来，如果发现页面中写的某一个静态资源路径在fis3编译后，路径没有被替换，那优先去看看map.json找找问题</p>
+            <h4>6.全局参数设置</h4>
+            <pre><code class="language">
+        fis.set('project.name', 'myproject');
+            </code></pre> 
+        </div>
+    </body>
+</html>

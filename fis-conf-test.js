@@ -205,4 +205,4 @@ fis.config.set('roadmap.path', [
 ].concat(fis.config.get('roadmap.path', [])));
 // *.md will be released as *.html
 fis.config.set('roadmap.ext.md', 'html');
-fis.config.set('roadmap.domain', '10.154.157.31:9850');
+fis.config.set('roadmap. ', '10.154.157.31:9850');

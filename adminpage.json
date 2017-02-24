@@ -19,16 +19,13 @@
                     , {
                         "name": "demo",
                         "url": "/page/cooladmin/course/demo.html"
-                    }
-                    , {
+                    },{
                         "name": "结构介绍",
                         "url": "/page/cooladmin/course/structure.html"
-                    }
-                    , {
+                    }, {
                         "name": "工具函数",
                         "url": "/page/cooladmin/course/utils.html"
-                    }
-                    , {
+                    },{
                         "name": "zform 教程",
                         "url": "/page/cooladmin/course/zform.html"
                     }
@@ -53,15 +50,12 @@
             {
                 "name": "扩展插件",
                 "url": "/page/zlibplug/scroll.html",
-                "links": [
-                    
-                    {
+                "links": [{
                         "name": "滚动条插件",
                         "url": "/page/zlibplug/scroll.html"
-                    },
-                    {
+                    },{
                         "name": "轮播插件",
-                        "url": "/page/zlibplug/ghyhaha.html"
+                        "url": "/page/zlibplug/zslide.html"
                     }
                 ]
             }

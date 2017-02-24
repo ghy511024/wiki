@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no, email=no">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+        <link rel="stylesheet" href="css/test.css"/>
+        <!--<script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>-->
+        <script type="text/javascript" src="/zlib/plug/mlib/zepto.min.js"></script>
+        <script type="text/javascript" src="/zlib/plug/mlib/baidutouch.js"></script>
+        <!--<script type="text/javascript" src="/dist/zlib.js"></script>-->
+        <script type="text/javascript" src="js/zslide_mobile.js"></script>
+        <style type="text/css">
+            html{
+                margin:0px;
+                padding:0px;
+                font-size:50px;
+                font-size:calc(100vw/7.5);//7.5rem 为100%;
+            }
+            @media screen and (min-width: 540px) {
+                html {
+                    /*font-size:calc(540px/7.5);*/
+                    font-size:72px;
+                }
+            }
+            @media screen and (max-width:320px) {
+                html {
+                    /*font-size:calc(320px/7.5);*/
+                    font-size:42.666666666666664px;
+                }
+            }
+            body{
+                background: #000;
+            }
+            #test{
+                width:7.5rem;
+                height:4rem;;
+            }
+            #test img{
+                width:7.5rem;
+                height:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="zslide-wrap" id="test">
+            <ul class="zslide-content">
+                <li class="zslide-item"><img src="https://drscdn.500px.org/photo/104779783/q%3D80_h%3D300/d307623ef117120ac0b2fca17f35d7c7" alt="" /></li>
+                <li class="zslide-item"><img src="https://drscdn.500px.org/photo/115791891/q%3D80_h%3D300/28c5fea79f55ce08e71f82de993088fb" alt="" /></li>
+                <li class="zslide-item"><img src="https://drscdn.500px.org/photo/65129811/q%3D80_m%3D2000/a6dd95cf9859873edf13c9abf2eda52d" alt="" /></li>
+                <li class="zslide-item"><img src="https://drscdn.500px.org/photo/76154009/q%3D80_m%3D2000/da05d401eae74db6aee35132a31f0483" alt="" /></li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var slide1 = new zlib.plug.zslide($("#test"));
+        </script>
+    </body>
+</html>
