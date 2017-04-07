@@ -11,7 +11,6 @@
         "/page/header/css/agate.css", //后端样式
         "http://static.ws.kukuplay.com/common/lib/zylib/v3.0/adminpageV3.9.css" //后端样式
 //        "/page/header/css/adminpageV3.0.css", //后端样式
-
     ];
     var jss = [
         "http://static.ws.kukuplay.com/common/lib/bootstrap/v3.3.5/js/bootstrap.min.js", //bootstrap 核心

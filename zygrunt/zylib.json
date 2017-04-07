@@ -13,6 +13,7 @@
             "zlib/base/tool/csstool.js",
             "zlib/base/tool/zen.js",
             "zlib/base/tool/reLayParent.js",
+            "zlib/base/tool/t.js",
             "zlib/ui/wave/js/wave.js"
         ]
     }

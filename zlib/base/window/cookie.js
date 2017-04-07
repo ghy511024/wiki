@@ -108,13 +108,14 @@
         return ret;
 
     };
-    if (typeof define === 'function' && define.amd) {
-        define(function () {
-            return cookie;
-        });
-    } else if (typeof exports !== 'undefined') {
-        exports.cookie = cookie;
-    } else
-        window.cookie = cookie;
+    // 容易与 其他define 模块冲去，故去掉。
+//    if (typeof define === 'function' && define.amd) {
+//        define(function () {
+//            return cookie;
+//        });
+//    } else if (typeof exports !== 'undefined') {
+//        exports.cookie = cookie;
+//    } else
+    window.cookie = cookie;
 
 })(document);

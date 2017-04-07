@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>t.js</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var blockregex = /\{\{(([@!]?)(.+?))\}\}(([\s\S]+?)(\{\{:\1\}\}([\s\S]+?))?)\{\{\/\1\}\}/g
+            var str = ' {{@user.friends}}<a href="{{%_val.url}}">{{=_val.name}}</a><br>{{/@user.friends}}'
+            str.replace(blockregex, function (_, __, meta, key, inner, if_true, has_else, if_false) {
+//                console.log(_, "##", __, "##", meta, "##", key, "##", inner, "##", if_true, "##", has_else, "##", if_false)
+            })
+            var reg = /\{\{(.+?)\}\}(vv+?)(acb+?)/g
+            var reg2 = /(\?|\&)ghy=([^\&]+)/gi;
+//            var reg = /v/g
+            var str2 = "{{asdf}}vvvacbasd";
+            var str3 = "?a=1&b=2&ghy=3asdf&vv=9";
+//            str2.replace(reg, function (p0, p1, p2, p3, p4, p5) {
+//                console.log(p0, "p0")
+//                console.log(p1, "p1")
+//                console.log(p2, "p2")
+//                console.log(p3, "p3")
+//                console.log(p4, "p4")
+//                console.log(p5, "p5")
+//            })
+            var res = str3.replace(reg2, function (p0, p1, p2, p3, p4, p5) {
+                console.log(p0, "p0")
+                console.log(p1, "p1")
+                console.log(p2, "p2")
+                console.log(p3, "p3")
+                console.log(p4, "p4")
+                console.log(p5, "p5")
+                return p2;
+            })
+            var haha = str3.match(reg2)
+            console.log(haha);
+//            console.log(res)
+        </script>
+    </body>
+</html>

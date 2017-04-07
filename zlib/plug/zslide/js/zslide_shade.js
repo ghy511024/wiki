@@ -1,12 +1,13 @@
 /* 
- ** 2017-3-1
+ ** 2017-3-8
+ *淡入淡出轮播
  */
 
 (function (zlib, plug) {
     "use strict";
     var _default = {
         duration: 5000, // 轮播间隙5秒
-        antime: 600, // 轮播切换时间
+        antime: 1000, // 轮播切换时间
         locktime: 400, // 点击间隔锁，如果不上锁，则连击效果不好，上锁并且按照动画间隔时间来，则连击感觉卡顿等很久，体验不好，所以取一个比较合适的值
         color: "#ff3140", // svg 转圈颜色 红色
         autoplay: true // 自动轮播
@@ -37,11 +38,8 @@
             this.num = this.elc.find(".zslide-item").length;
             this.item_width = this.el.width();
             this.cur = 1;
-            // 插件填充
-            var lastitem = this.elc.find(".zslide-item:last").clone();
-            this.elc.prepend(lastitem);
 
-            this._moveTo(1, 0);
+            this.elc.find(".zslide-item:first").addClass("current");
             // 添加旋转圆圈
             var control = $("<div class='zslide-controll'><div class='zslide-svg-wrap'></div><div class='zslide-dot-wrap'></div></div>")
             this.el.append(control);
@@ -108,23 +106,21 @@
 
         },
         _moveTo: function (cur, antime) {
-            var x = -(cur * this.item_width)
             console.log("【更改轮播】", " 当前元素位置：" + this.cur, " 目的位置：" + cur)
             this.cur = cur;
             if (zlib.tran3d) {
                 if (antime != null) {
                     antime = (Number(antime) || 0)
-                    this.elc.css({
+                    this.elc.find(".zslide-item").css({
                         "transition-duration": antime + "ms"
                     })
                 } else {
-                    this.elc.css({
+                    this.elc.find(".zslide-item").css({
                         "transition-duration": this.antime + "ms"
                     })
                 }
-                this.elc.css({
-                    "transform": "translate3d(" + x + "px, 0px, 0px)"
-                })
+                this.elc.find(".zslide-item.current").removeClass("current");
+                this.elc.find(".zslide-item").eq(cur - 1).addClass("current");
             } else {// IE8 专用 使用jquery 的动画
                 var t = this.antime
                 if (antime != null) {
@@ -148,7 +144,6 @@
             this._controlClear();
             var next = this.cur + 1;
             if (next > this.num) {
-                this._moveTo(0, 0)// 位置重置为初始
                 next = 1;
             }
             //加timeout 让样式重置生效
@@ -166,9 +161,8 @@
 //            if (!this.induration) {
             this._controlClear();
             var pre = this.cur - 1;
-            if (pre < 0) {
-                this._moveTo(this.num, 0)// 位置重置为初始
-                pre = this.num - 1;
+            if (pre <= 0) {
+                pre = this.num;
             }
             setTimeout($.proxy(function () {
                 this._moveTo(pre);
@@ -216,4 +210,4 @@
     }
     zlib.extend(slide, p); // 属性继承
     plug.zslide = slide;
-})(zlib = zlib || {}, zlib.plug = zlib.plug || {});
+})(zlib = window.zlib || {}, zlib.plug = zlib.plug || {});
